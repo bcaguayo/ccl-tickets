@@ -41,12 +41,14 @@ htmlcov/
 .tox/
 .nox/
 .coverage
+.coverage.*
 .cache
 nosetests.xml
 coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
+.pytest_cache/
 
 # Translations
 *.mo
@@ -82,7 +84,11 @@ ipython_config.py
 .python-version
 
 # celery beat schedule file
+celerybeat-schedule
 celerybeat-schedule.*
+
+# SageMath parsed files
+*.sage.py
 
 # dotenv
 .env
