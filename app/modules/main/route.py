@@ -1,4 +1,4 @@
-from flask import Blueprint, make_response, jsonify
+from flask import Blueprint, make_response, jsonify, render_template
 from .controller import MainController
 
 
@@ -7,7 +7,7 @@ main_controller = MainController()
 
 @main_bp.route('/', )
 def home():
-    return make_response(jsonify(data={"message": "Welcome to the Home Page!"}))
+    return render_template('index.html')
 
 @main_bp.route('/test', methods=['GET'])
 def test():

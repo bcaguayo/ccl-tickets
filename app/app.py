@@ -16,6 +16,11 @@ def create_app(config=None) -> Flask:
     if config:
         app.config.from_object(get_config_by_name(config))
 
+    # Define the default route here, outside of the Blueprint
+    # @app.route('/')
+    # def home():
+    #     return render_template('index.html')
+
     # Initialize extensions
     initialize_db(app)
 
