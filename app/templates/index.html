@@ -17,23 +17,53 @@
 </head>
 <body class="bg-light text-dark">
     <div class="container mt-5">
-        <h2>CCL - Submit an MI Request</h2>
-        <h3>Version A1.0</h3>
+        <div class="text-center">
+            <h2>CCL - Submit an MI Request</h2>
+            <img src="https://consultationclaims.co.uk/wp-content/uploads/2025/04/ccl-wht-e1738942786504.png" alt="CCL Logo" class="img-fluid mb-3">
+            <h3>Version A1.0</h3>
+        </div>
+        
         <form id="ticketForm">
             <input name="name" placeholder="Your Name" required>
             <input name="email" type="email" placeholder="Your Email" required>
             <textarea name="request" placeholder="Describe your Request... "
             rows="5"></textarea>
-            <button type="submit">Submit</button>
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div> 
         </form>
+
+        <hr>
         <p id="statusMessage"></p>
-        <div name="output" ></div>
-        <div class="text-center">
-            <a href="/greet" class="btn btn-primary">Try the API</a>
-        </div>
+        <div name="output" class="mt-3"></div>
     </div>
+
+    <script>
+        document.getElementById('ticketForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            // Get form values
+            const name = event.target.name.value;
+            const email = event.target.email.value;
+            const request = event.target.request.value;
+
+            // Create output content
+            const outputHTML = `
+                <div class="alert alert-info">
+                    <h5>Form Submitted:</h5>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Request:</strong> ${request}</p>
+                </div>
+            `;
+
+            // Inject into output div
+            document.getElementById('output').innerHTML = outputHTML;
+        });
+    </script>
     
     <!-- <script>
+        
         const form = document.getElementById('ticketForm');
         form.addEventListener('submit', async () => {
             e.preventDefault();
@@ -55,7 +85,7 @@
             });
         });
         const result = await res.json();
-        document.getElementById().textContent = result.message;
+        document.getElementById("statusMessage").textContent = result.message;
         form.reset();
     </script> -->
 </body>
