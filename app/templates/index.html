@@ -19,21 +19,22 @@
     <div class="container mt-5">
         <div class="text-center">
             <h2>CCL - Submit an MI Request</h2>
-            <div class="bg-dark text-white p-4 rounded mb-4">
-                <img src="https://consultationclaims.co.uk/wp-content/uploads/2025/04/ccl-wht-e1738942786504.png" alt="CCL Logo" class="img-fluid mb-3">
+            <div class="bg-dark text-white p-5 rounded mb-4">
+                <img src="https://consultationclaims.co.uk/wp-content/uploads/2025/04/ccl-wht-e1738942786504.png" 
+                    alt="CCL Logo" class="img-fluid">
             </div>
             <h3>Version A1.0</h3>
+
+            <form id="ticketForm">
+                <input name="name" placeholder="Your Name" required>
+                <input name="email" type="email" placeholder="Your Email" required>
+                <textarea name="request" placeholder="Describe your Request... "
+                rows="5"></textarea>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div> 
+            </form>
         </div>
-        
-        <form id="ticketForm">
-            <input name="name" placeholder="Your Name" required>
-            <input name="email" type="email" placeholder="Your Email" required>
-            <textarea name="request" placeholder="Describe your Request... "
-            rows="5"></textarea>
-            <div class="text-center">
-                <button class="btn btn-primary" type="submit">Submit</button>
-            </div> 
-        </form>
 
         <hr>
         <p id="statusMessage"></p>
