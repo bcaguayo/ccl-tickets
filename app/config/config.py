@@ -1,3 +1,7 @@
+import os
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+
 class BaseConfig:
     """Base configuration."""
     DEBUG = False
@@ -8,18 +12,19 @@ class BaseConfig:
 class DevelopmentConfig(BaseConfig):
     """Development configuration."""
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///development.db'
+    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '../data/development.db')
 
 class TestingConfig(BaseConfig):
     """Testing configuration."""
     DEBUG = True
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///testing.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '../data/testing.db')
 
 class ProductionConfig(BaseConfig):
     """Production configuration."""
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///production.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, '../data/production.db')
 
 
 def get_config_by_name(config_name):
